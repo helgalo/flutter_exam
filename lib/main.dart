@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_exam/core/app_colors.dart';
 import 'package:flutter_exam/screens/home_screen.dart';
 import 'package:flutter_exam/screens/login_screen.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Fluter Exam',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.mainColor),
         useMaterial3: true,
       ),
       routes: {
