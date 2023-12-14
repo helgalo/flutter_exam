@@ -97,7 +97,7 @@ enum TextFieldType {
   error,
 }
 
-extension DTextFieldTypeExtension on TextFieldType {
+extension TextFieldTypeExtension on TextFieldType {
   String get description => describeEnum(this);
 
   TextFieldTypeTheme get theme {

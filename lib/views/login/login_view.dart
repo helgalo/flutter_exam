@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_exam/core/app_colors.dart';
+import 'package:flutter_exam/stores/login.store.dart';
 import 'package:flutter_exam/views/login/widgets/basic_button.dart';
 import 'package:flutter_exam/widgets/input_textfield.dart';
 
@@ -9,6 +10,8 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LoginStore store = LoginStore();
+
     return Padding(
       padding: const EdgeInsets.all(24),
       child: Column(
@@ -21,7 +24,7 @@ class LoginView extends StatelessWidget {
               inputField(
                 title: "Usuário",
                 icon: Icons.person,
-                controller: TextEditingController(),
+                controller: store.userController,
                 key: const Key("userField"),
               ),
               const SizedBox(height: 12),
@@ -29,12 +32,12 @@ class LoginView extends StatelessWidget {
                 title: "Senha",
                 icon: Icons.lock,
                 isObscure: true,
-                controller: TextEditingController(),
+                controller: store.passwordController,
                 key: const Key("passwordField"),
               ),
               const SizedBox(height: 24),
-              const Center(
-                child: BasicButtonWidget(),
+              Center(
+                child: BasicButtonWidget(onTap: store.onTapLogin),
               ),
             ],
           ),
