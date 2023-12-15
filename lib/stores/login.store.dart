@@ -12,24 +12,26 @@ abstract class _LoginStore with Store {
   final TextEditingController passwordController = TextEditingController();
 
   @observable
-  Observable<Failure>? userFailure;
+  Observable<Failure?> userFailure = Observable(null);
   @observable
-  Observable<Failure>? passwordFailure;
+  Observable<Failure?> passwordFailure = Observable(null);
 
   void onTapLogin() async {
     verifyFields();
 
-    if (userFailure == null && passwordFailure == null) {
+    if (userFailure.value == null && passwordFailure.value == null) {
       Navigator.pushReplacementNamed(navigationApp.currentContext!, '/home');
     }
+
+    //TODO: Subir snack com o erro
 
     return;
   }
 
   @action
   void verifyFields() {
-    var userFailure = hasValidUser(userController.text);
-    var passwordFailure = hasValidPassword(passwordController.text);
+    userFailure.value = hasValidUser(userController.text);
+    passwordFailure.value = hasValidPassword(passwordController.text);
   }
 
   Failure? hasValidPassword(String? passwordText) {
@@ -44,8 +46,10 @@ abstract class _LoginStore with Store {
     return null;
   }
 
-  Failure? hasValidUser(String? passwordText) {
-    //TODO:
+  Failure? hasValidUser(String? userText) {
+    if (userText!.isEmpty) {
+      return LoginFailures.emptyFieldFailure.failure;
+    }
     return null;
   }
 }
@@ -63,25 +67,21 @@ extension LoginFailuresExtension on LoginFailures {
     switch (this) {
       case LoginFailures.lessThenTwoCharactersPasswordFailure:
         return Failure(
-          title: "lessThenTwoCharactersPasswordFailure",
-          descriptionPtBr:
-              "O campo senha não pode ter menos que dois caracteres.",
-          code: 000,
+          description: "O campo senha não pode ter menos que dois caracteres.",
+          code: "000",
           id: 0,
         );
       case LoginFailures.specialCharactersPasswordFailure:
         return Failure(
-          title: "specialCharactersPasswordFailure",
-          descriptionPtBr:
+          description:
               "O campo senha não pode ter caracteres especiais, sendo apenas possível informar 'a' até 'Z' e '0' até '9'. ",
-          code: 001,
+          code: "001",
           id: 1,
         );
       case LoginFailures.emptyFieldFailure:
         return Failure(
-          title: "emptyFieldFailure",
-          descriptionPtBr: "O campo não pode estar vazio.",
-          code: 002,
+          description: "O campo não pode estar vazio.",
+          code: "002",
           id: 2,
         );
     }

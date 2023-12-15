@@ -108,6 +108,7 @@ extension TextFieldTypeExtension on TextFieldType {
         );
       case TextFieldType.error:
         return TextFieldTypeTheme(
+          leadingIconColor: AppColors.error,
           borderColor: AppColors.error,
           backgroundColor: AppColors.white,
         );

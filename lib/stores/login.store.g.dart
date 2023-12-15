@@ -13,13 +13,13 @@ mixin _$LoginStore on _LoginStore, Store {
       Atom(name: '_LoginStore.userFailure', context: context);
 
   @override
-  Observable<Failure>? get userFailure {
+  Observable<Failure?> get userFailure {
     _$userFailureAtom.reportRead();
     return super.userFailure;
   }
 
   @override
-  set userFailure(Observable<Failure>? value) {
+  set userFailure(Observable<Failure?> value) {
     _$userFailureAtom.reportWrite(value, super.userFailure, () {
       super.userFailure = value;
     });
@@ -29,13 +29,13 @@ mixin _$LoginStore on _LoginStore, Store {
       Atom(name: '_LoginStore.passwordFailure', context: context);
 
   @override
-  Observable<Failure>? get passwordFailure {
+  Observable<Failure?> get passwordFailure {
     _$passwordFailureAtom.reportRead();
     return super.passwordFailure;
   }
 
   @override
-  set passwordFailure(Observable<Failure>? value) {
+  set passwordFailure(Observable<Failure?> value) {
     _$passwordFailureAtom.reportWrite(value, super.passwordFailure, () {
       super.passwordFailure = value;
     });

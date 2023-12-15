@@ -1,12 +1,10 @@
 class Failure {
-  final String title;
-  final String descriptionPtBr;
-  final int code;
+  final String description;
+  final String code;
   final int id;
 
   Failure({
-    required this.title,
-    required this.descriptionPtBr,
+    required this.description,
     required this.code,
     required this.id,
   });
