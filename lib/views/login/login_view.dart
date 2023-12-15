@@ -50,7 +50,11 @@ class LoginView extends StatelessWidget {
                       ),
                       const SizedBox(height: 24),
                       Center(
-                        child: BasicButtonWidget(onTap: store.onTapLogin),
+                        child: BasicButtonWidget(
+                          onTap: store.onTapLogin,
+                          title: "Entrar",
+                          backgroundColor: AppColors.success,
+                        ),
                       ),
                     ],
                   ),
@@ -60,7 +64,10 @@ class LoginView extends StatelessWidget {
                   onPressed: store.onTapPolitcs,
                   child: const Text(
                     "Política de Privacidade",
-                    style: TextStyle(color: AppColors.white, fontSize: 12),
+                    style: TextStyle(
+                      color: AppColors.white,
+                      fontSize: 12,
+                    ),
                   ),
                 )
               ],
