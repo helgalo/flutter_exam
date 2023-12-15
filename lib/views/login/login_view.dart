@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_exam/core/app_colors.dart';
 import 'package:flutter_exam/stores/login.store.dart';
+import 'package:flutter_exam/utils/input_formatters.dart';
 import 'package:flutter_exam/views/login/widgets/basic_button.dart';
 import 'package:flutter_exam/widgets/input_textfield.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -55,7 +57,7 @@ class LoginView extends StatelessWidget {
                 ),
                 CupertinoButton(
                   padding: EdgeInsets.zero,
-                  onPressed: () {},
+                  onPressed: store.onTapPolitcs,
                   child: const Text(
                     "Política de Privacidade",
                     style: TextStyle(color: AppColors.white, fontSize: 12),
@@ -89,6 +91,10 @@ class LoginView extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           InputTextField(
+            inputFormatters: [
+              LengthLimitingTextInputFormatter(20),
+              NoSpaceAtEndInputFormatter()
+            ],
             key: key,
             controller: controller,
             leadingIcon: icon,
