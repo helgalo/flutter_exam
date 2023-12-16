@@ -38,6 +38,7 @@ dependencies:
   mobx: ^2.2.3
   flutter_mobx: ^2.2.0+1
   url_launcher: ^6.0.10
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
