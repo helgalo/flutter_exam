@@ -25,6 +25,22 @@ mixin _$HomeStore on _HomeStore, Store {
     });
   }
 
+  late final _$indexIsEditingAtom =
+      Atom(name: '_HomeStore.indexIsEditing', context: context);
+
+  @override
+  int? get indexIsEditing {
+    _$indexIsEditingAtom.reportRead();
+    return super.indexIsEditing;
+  }
+
+  @override
+  set indexIsEditing(int? value) {
+    _$indexIsEditingAtom.reportWrite(value, super.indexIsEditing, () {
+      super.indexIsEditing = value;
+    });
+  }
+
   late final _$_HomeStoreActionController =
       ActionController(name: '_HomeStore', context: context);
 
@@ -62,9 +78,21 @@ mixin _$HomeStore on _HomeStore, Store {
   }
 
   @override
+  void onTapEditButton(int index) {
+    final _$actionInfo = _$_HomeStoreActionController.startAction(
+        name: '_HomeStore.onTapEditButton');
+    try {
+      return super.onTapEditButton(index);
+    } finally {
+      _$_HomeStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
-textList: ${textList}
+textList: ${textList},
+indexIsEditing: ${indexIsEditing}
     ''';
   }
 }

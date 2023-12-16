@@ -12,6 +12,9 @@ class InputTextField extends StatefulWidget {
   final TextFieldType styleType;
   final List<TextInputFormatter>? inputFormatters;
   final bool isObscure;
+  final String? hintText;
+  final FocusNode? focusNode;
+  final Function(String)? onSubmitted;
 
   const InputTextField({
     super.key,
@@ -22,6 +25,9 @@ class InputTextField extends StatefulWidget {
     this.leadingIcon,
     this.inputFormatters,
     this.isObscure = false,
+    this.hintText,
+    this.onSubmitted,
+    this.focusNode,
   });
 
   @override
@@ -60,12 +66,21 @@ class _InputTextFieldState extends State<InputTextField> {
             ),
           Expanded(
             child: TextField(
+              focusNode: widget.focusNode,
+              onSubmitted: widget.onSubmitted,
               obscureText: widget.isObscure,
               inputFormatters: widget.inputFormatters,
-              decoration: const InputDecoration(
-                contentPadding: EdgeInsets.all(8),
+              textAlign: TextAlign.center,
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.all(8),
                 isDense: true,
                 border: InputBorder.none,
+                hintText: widget.hintText,
+                hintStyle: const TextStyle(
+                  fontSize: 14,
+                  color: AppColors.black,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
               controller: widget.controller,
               style: const TextStyle(
