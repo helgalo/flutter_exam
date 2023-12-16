@@ -22,7 +22,7 @@ class _HomeViewState extends State<HomeView> {
         builder: (context, columnConstrains) => SingleChildScrollView(
           child: Container(
             constraints: BoxConstraints(minHeight: columnConstrains.maxHeight),
-            child: Column(
+            child: Column( 
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
