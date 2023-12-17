@@ -45,11 +45,11 @@ mixin _$HomeStore on _HomeStore, Store {
       ActionController(name: '_HomeStore', context: context);
 
   @override
-  void onChangedListText(List<String> texts) {
+  void onChangedTextList(List<String> texts) {
     final _$actionInfo = _$_HomeStoreActionController.startAction(
-        name: '_HomeStore.onChangedListText');
+        name: '_HomeStore.onChangedTextList');
     try {
-      return super.onChangedListText(texts);
+      return super.onChangedTextList(texts);
     } finally {
       _$_HomeStoreActionController.endAction(_$actionInfo);
     }
@@ -78,11 +78,11 @@ mixin _$HomeStore on _HomeStore, Store {
   }
 
   @override
-  void onTapEditButton(int index) {
+  void onTapTextEdit(int index) {
     final _$actionInfo = _$_HomeStoreActionController.startAction(
-        name: '_HomeStore.onTapEditButton');
+        name: '_HomeStore.onTapTextEdit');
     try {
-      return super.onTapEditButton(index);
+      return super.onTapTextEdit(index);
     } finally {
       _$_HomeStoreActionController.endAction(_$actionInfo);
     }

@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_exam/core/app_colors.dart';
 import 'package:flutter_exam/stores/login.store.dart';
 import 'package:flutter_exam/utils/input_formatters.dart';
-import 'package:flutter_exam/views/login/widgets/basic_button.dart';
-import 'package:flutter_exam/widgets/input_textfield.dart';
+import 'package:flutter_exam/widgets/basic_button_widget.dart';
+import 'package:flutter_exam/widgets/input_textfield_widget.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 class LoginView extends StatelessWidget {

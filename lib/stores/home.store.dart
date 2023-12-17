@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_exam/main.dart';
+import 'package:flutter_exam/widgets/alert_dialog_widget.dart';
 import 'package:flutter_exam/widgets/snackbar_widget.dart';
 import 'package:mobx/mobx.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,7 +20,7 @@ abstract class _HomeStore with Store {
   FocusNode focusNode = FocusNode();
 
   @action
-  void onChangedListText(List<String> texts) {
+  void onChangedTextList(List<String> texts) {
     textList.insertAll(0, texts);
   }
 
@@ -39,7 +40,7 @@ abstract class _HomeStore with Store {
     textController.clear();
     indexIsEditing = null;
 
-    saveAllData();
+    saveData();
   }
 
   @action
@@ -49,29 +50,47 @@ abstract class _HomeStore with Store {
       focusNode.unfocus();
     }
     textList.remove(text);
-    saveAllData();
+    saveData();
   }
 
   @action
-  void onTapEditButton(int index) {
+  void onTapTextEdit(int index) {
     textController.text = textList[index];
     indexIsEditing = index;
     focusNode.requestFocus();
   }
 
-  void saveAllData() async {
+  Future<void> onTapTextRemove(String text) async {
+    await showDialog(
+      context: navigationApp.currentContext!,
+      builder: (BuildContext context) {
+        return AlertDialogWidget(
+          description: "Deseja prosseguir com a deleção?",
+          onTapOption1: () => Navigator.of(context).pop(true),
+          onTapOption2: () {
+            removeText(text);
+            Navigator.of(context).pop(true);
+          },
+          option1Text: "Cancelar",
+          option2Text: "Confirmar",
+        );
+      },
+    );
+  }
+
+  void saveData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     await prefs.setStringList('items', textList.nonObservableInner);
   }
 
-  void getAllData() async {
+  void getData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     if (textList.isNotEmpty && textList.last == '') {
       removeText(textList.last);
     }
 
-    onChangedListText(prefs.getStringList('items') ?? []);
+    onChangedTextList(prefs.getStringList('items') ?? []);
   }
 }
