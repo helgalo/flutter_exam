@@ -51,6 +51,7 @@ class LoginView extends StatelessWidget {
                       const SizedBox(height: 24),
                       Center(
                         child: BasicButtonWidget(
+                          width: 130,
                           onTap: store.onTapLogin,
                           title: "Entrar",
                           backgroundColor: AppColors.success,
