@@ -1,6 +1,7 @@
 # flutter_exam
 
-Projeto flutter desenvolvido como um desafio de criar uma tela de login e home para demonstrar alguns conhecimentos com gerencia de estado e afins.
+Projeto flutter desenvolvido como um desafio de criar uma tela de login e home para demonstrar alguns conhecimentos com gerência de estado e afins.
+
 Utilizei pacotes como MobX e SharedPreferences e também fiz alguns testes de integração básicos.
 
 Versão flutter:
