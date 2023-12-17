@@ -15,6 +15,7 @@ class InputTextField extends StatefulWidget {
   final String? hintText;
   final FocusNode? focusNode;
   final Function(String)? onSubmitted;
+  final TextAlign textAlign;
 
   const InputTextField({
     super.key,
@@ -28,6 +29,7 @@ class InputTextField extends StatefulWidget {
     this.hintText,
     this.onSubmitted,
     this.focusNode,
+    this.textAlign = TextAlign.start,
   });
 
   @override
@@ -70,7 +72,7 @@ class _InputTextFieldState extends State<InputTextField> {
               onSubmitted: widget.onSubmitted,
               obscureText: widget.isObscure,
               inputFormatters: widget.inputFormatters,
-              textAlign: TextAlign.center,
+              textAlign: widget.textAlign,
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.all(8),
                 isDense: true,

@@ -75,6 +75,7 @@ class HomeView extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     InputTextField(
+                      textAlign: TextAlign.center,
                       key: const Key("inputField"),
                       focusNode: store.focusNode,
                       width: double.infinity,
