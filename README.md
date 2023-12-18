@@ -7,6 +7,10 @@ Utilizei pacotes como MobX e SharedPreferences e também fiz alguns testes de in
 Versão flutter:
 3.13.9
 
+Resumo de resultado:
+
+![login](https://github.com/helgalo/flutter_exam/assets/44454981/edbdef00-025d-4a60-ac66-ac76358f3095)
+
 Desafio:
 
 Tela de login:
