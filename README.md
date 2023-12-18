@@ -11,6 +11,10 @@ Resumo de resultado:
 
 ![login](https://github.com/helgalo/flutter_exam/assets/44454981/edbdef00-025d-4a60-ac66-ac76358f3095)
 
+Tela home:
+
+![home](https://github.com/helgalo/flutter_exam/assets/44454981/65bba6ff-fab1-4781-9e0e-031fe8791d97)
+
 Desafio:
 
 Tela de login:
